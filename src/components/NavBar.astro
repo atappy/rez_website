@@ -1,48 +1,39 @@
 ---
 import { Image } from 'astro:assets';
-import logoImage from '../assets/logo.jpeg';
+import logoImage from '../assets/logo-mark.png';
+import { navigation, isNavGroup } from '../data/navigation';
 ---
 <header class="navbar">
   <nav class="nav-container">
-    
+
     <a href="/" class="brand">
-      <Image 
-        src={logoImage} 
-        alt="Logo La Troupe du Rez" 
+      <Image
+        src={logoImage}
+        alt="Logo La Troupe du Rez"
         class="brand-img"
       />
     </a>
 
     <div class="desktop-menu">
-      <a href="/" class="nav-link">Les Figurants</a>
-      <div class="dropdown group">
-        <button class="nav-link dropdown-btn">
-          Présentations
-          <svg class="chevron" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div class="dropdown-content">
-          <a href="/presentations/troupe" class="dropdown-item">La Troupe</a>
-          <a href="/productions/membres" class="dropdown-item">Ses membres</a>
-        </div>
-      </div>
-      
-      <div class="dropdown group">
-        <button class="nav-link dropdown-btn">
-          Productions
-          <svg class="chevron" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        <div class="dropdown-content">
-          <a href="/productions/dissection" class="dropdown-item">Dissection d'une chute de neige</a>
-          <a href="/productions/xi" class="dropdown-item">Xi</a>
-          <a href="/productions/physiciens" class="dropdown-item">Les Physiciens</a>
-        </div>
-      </div>
-
-      <a href="/contact" class="nav-link">Contact</a>
+      {navigation.map((entry) =>
+        isNavGroup(entry) ? (
+          <div class="dropdown group">
+            <button class="nav-link dropdown-btn">
+              {entry.label}
+              <svg class="chevron" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="dropdown-content">
+              {entry.items.map((item) => (
+                <a href={item.href} class="dropdown-item">{item.label}</a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <a href={entry.href} class="nav-link">{entry.label}</a>
+        )
+      )}
     </div>
 
     <button id="menu-btn" class="mobile-btn" aria-label="Menu">
@@ -53,10 +44,18 @@ import logoImage from '../assets/logo.jpeg';
   </nav>
 
   <div id="mobile-menu" class="mobile-menu hidden">
-    <a href="/actualites" class="mobile-link">Actualités</a>
-    <a href="/la-compagnie" class="mobile-link">La Compagnie</a>
-    <a href="/productions" class="mobile-link">Productions</a>
-    <a href="/contact" class="mobile-link">Contact</a>
+    {navigation.map((entry) =>
+      isNavGroup(entry) ? (
+        <div class="mobile-group">
+          <span class="mobile-group-label">{entry.label}</span>
+          {entry.items.map((item) => (
+            <a href={item.href} class="mobile-link mobile-link-nested">{item.label}</a>
+          ))}
+        </div>
+      ) : (
+        <a href={entry.href} class="mobile-link">{entry.label}</a>
+      )
+    )}
   </div>
 </header>
 

@@ -16,7 +16,7 @@ interface Props {
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout title={frontmatter.title} bgImage={frontmatter.bgImage}>
+<BaseLayout title={frontmatter.title} backgroundImage={frontmatter.bgImage}>
   <Hero title={frontmatter.title} />
 
   <Synopsis title={frontmatter.title} poster={frontmatter.poster}>
