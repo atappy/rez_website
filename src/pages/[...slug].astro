@@ -1,36 +1,34 @@
 ---
+import { getCollection, render } from 'astro:content';
 import ProductionLayout from '../layouts/ProductionLayout.astro';
 
 export async function getStaticPaths() {
-  const pieces = import.meta.glob('../pieces/*.md', { eager: true });
-  const productions = Object.values(pieces);
+  const pieces = await getCollection('pieces');
 
-  return productions
-    .filter((production: any) => production.frontmatter?.route !== undefined)
-    .map((production: any) => {
-      const rawRoute = production.frontmatter.route;
+  return pieces.map((piece) => {
+    const rawRoute = piece.data.route;
 
-      let slug: string | undefined;
+    let slug: string | undefined;
 
-      if (rawRoute === '/' || rawRoute === '') {
-        slug = undefined;
-      } else if (rawRoute.startsWith('/')) {
-        slug = rawRoute.slice(1);
-      } else {
-        slug = rawRoute;
-      }
+    if (rawRoute === '/' || rawRoute === '') {
+      slug = undefined;
+    } else if (rawRoute.startsWith('/')) {
+      slug = rawRoute.slice(1);
+    } else {
+      slug = rawRoute;
+    }
 
-      return {
-        params: { slug },
-        props: { production },
-      };
-    });
+    return {
+      params: { slug },
+      props: { piece },
+    };
+  });
 }
 
-const { production } = Astro.props;
-const { Content, frontmatter } = production;
+const { piece } = Astro.props;
+const { Content } = await render(piece);
 ---
 
-<ProductionLayout frontmatter={frontmatter}>
+<ProductionLayout frontmatter={piece.data}>
   <Content />
 </ProductionLayout>
