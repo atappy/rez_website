@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import { loadAssetImage } from '../../utils/images';
+
+interface Props {
+  title: string;
+  poster?: string;
+}
+
+const { title, poster } = Astro.props;
+
+const posterMetadata = await loadAssetImage(poster);
+const posterFallbackUrl = poster && !posterMetadata ? poster : null;
+const hasPoster = posterMetadata || posterFallbackUrl;
+---
+
+<section class="content-section space-y-10">
+  <h2 class="section-label">Résumé</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-14 items-start">
+    {hasPoster && (
+      <div class="md:col-span-5">
+        {posterMetadata ? (
+          <Image
+            src={posterMetadata}
+            alt={`Affiche ${title}`}
+            class="w-full h-auto object-cover shadow-2xl"
+          />
+        ) : (
+          <img
+            src={posterFallbackUrl!}
+            alt={`Affiche ${title}`}
+            class="w-full h-auto object-cover shadow-2xl"
+          />
+        )}
+      </div>
+    )}
+
+    <div class={hasPoster ? 'md:col-span-7' : 'md:col-span-12'}>
+      <div class="prose prose-invert prose-lg max-w-none font-light leading-relaxed text-neutral-200 space-y-6">
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>

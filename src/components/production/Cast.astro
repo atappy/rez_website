@@ -1,0 +1,19 @@
+---
+interface Props {
+  items: { role: string; name: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="content-section space-y-10">
+  <h2 class="section-label">Générique</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-3">
+    {items.map((item) => (
+      <div class="py-2.5 border-b border-white/10 flex justify-between items-baseline gap-4">
+        <span class="text-xs uppercase tracking-wider text-neutral-400 font-medium">{item.role}</span>
+        <span class="text-sm font-light text-white text-right">{item.name}</span>
+      </div>
+    ))}
+  </div>
+</section>

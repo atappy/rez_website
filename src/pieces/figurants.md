@@ -23,7 +23,7 @@ reservation:
   text: "Tarif à choix > 40.- / 30.- / 20.-"
   link: "https://billetterie.troupedurez.ch"
 quotes:
-  - text: "Tu as remarqué comme on dit des choses intimes, quand on attend?"
+  - text: "Tu as remarqué comme on dit des choses intimes, quand on attend ?"
   - text: "J'aime bien ça, moi, la magie. Les trucages, les décors, la fausse neige, la fausse pluie... ça me fait rêver."
 
 sponsoring:

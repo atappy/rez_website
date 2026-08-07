@@ -1,0 +1,40 @@
+---
+interface Props {
+  representations?: { date: string; location: string }[];
+  reservation?: { text: string; link: string };
+}
+
+const { representations, reservation } = Astro.props;
+---
+
+<section class="content-section space-y-12">
+  {representations && (
+    <div class="space-y-8">
+      <h2 class="section-label">Dates & Représentations</h2>
+      <ul class="divide-y divide-white/10">
+        {representations.map((rep) => (
+          <li class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <span class="font-serif text-lg text-white">{rep.date}</span>
+            <span class="text-sm font-light text-neutral-300">{rep.location}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  {reservation && (
+    <div class="pt-6 text-center space-y-6">
+      <p class="font-light text-neutral-300 text-sm max-w-md mx-auto">{reservation.text}</p>
+      <div>
+        <a
+          href={reservation.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block bg-white text-black text-xs uppercase tracking-[0.25em] font-medium px-10 py-4 hover:bg-neutral-200 transition-colors shadow-lg"
+        >
+          Réserver vos places
+        </a>
+      </div>
+    </div>
+  )}
+</section>

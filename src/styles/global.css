@@ -1,10 +1,6 @@
 /* src/styles/global.css */
 @import "tailwindcss";
 
-@theme {
-    --font-logo: " Gravitas One", serif;
-}
-
 @layer components {
 
     /* --- Navbar Styles --- */
@@ -77,54 +73,33 @@
         @apply block text-gray-600 font-light hover:text-black;
     }
 
-    /* --- Landing Page / Hero Styles (Unchanged) --- */
-    .hero-section {
-        @apply relative flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] text-center px-4;
+    /* --- Page Shell (BaseLayout) --- */
+    .page-body {
+        @apply bg-neutral-950 text-white font-sans antialiased selection:bg-white selection:text-black min-h-full relative;
     }
 
-    .hero-title {
-        @apply text-5xl md:text-7xl font-light text-gray-900 uppercase tracking-widest mb-6;
+    .page-backdrop {
+        @apply fixed inset-x-0 bottom-0 top-20 md:top-24 -z-10 overflow-hidden pointer-events-none;
     }
 
-    .hero-subtitle {
-        @apply text-lg md:text-xl text-gray-500 font-light max-w-2xl mx-auto mb-10;
+    .page-backdrop-img {
+        @apply w-full h-full object-cover object-top opacity-40 filter brightness-90;
     }
 
-    .btn-primary {
-        @apply inline-block px-8 py-3 border border-gray-900 text-gray-900 text-sm uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-colors duration-300;
+    .page-backdrop-overlay {
+        @apply absolute inset-0 bg-gradient-to-b from-neutral-950/80 via-neutral-950/40 to-neutral-950;
     }
 
-
-    .prod-hero {
-        @apply w-full h-[60vh] min-h-[400px] bg-cover bg-center bg-no-repeat flex items-center justify-center text-center px-4;
+    .page-main {
+        @apply relative z-10 max-w-4xl mx-auto px-6 pt-24 md:pt-32 pb-24 space-y-20 md:space-y-28;
     }
 
-    .prod-title {
-        @apply text-4xl md:text-6xl text-white font-logo tracking-wide;
+    /* --- Production Page Sections --- */
+    .content-section {
+        @apply pt-16 md:pt-20;
     }
 
-    .prod-container {
-        @apply max-w-6xl mx-auto px-6 py-16 space-y-24;
-    }
-
-    .section-heading {
-        @apply text-2xl font-logo text-gray-900 mb-8 pb-4 border-b border-gray-200;
-    }
-
-    /* The Alternating Card System */
-    .prod-card {
-        @apply flex flex-col md:flex-row gap-12 md:gap-24 items-start;
-    }
-
-    .prod-card.flex-row-reverse {
-        @apply md:flex-row-reverse;
-    }
-
-    .prod-card-img {
-        @apply w-full md:w-5/12 flex-shrink-0;
-    }
-
-    .prod-card-content {
-        @apply w-full md:w-7/12;
+    .section-label {
+        @apply text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400;
     }
 }

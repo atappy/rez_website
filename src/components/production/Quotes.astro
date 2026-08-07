@@ -1,0 +1,24 @@
+---
+interface Props {
+  quotes: { text: string; author?: string }[];
+}
+
+const { quotes } = Astro.props;
+---
+
+<section class="content-section space-y-12">
+  <div class="space-y-12 max-w-3xl mx-auto">
+    {quotes.map((quote) => (
+      <blockquote class="text-center space-y-4">
+        <p class="font-serif italic text-xl md:text-2xl text-neutral-100 leading-relaxed">
+          « {quote.text} »
+        </p>
+        {quote.author && (
+          <cite class="block text-xs uppercase tracking-[0.2em] text-neutral-400 not-italic">
+            — {quote.author}
+          </cite>
+        )}
+      </blockquote>
+    ))}
+  </div>
+</section>

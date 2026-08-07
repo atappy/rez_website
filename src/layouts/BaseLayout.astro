@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/NavBar.astro';
+import { getImage } from 'astro:assets';
+import { loadAssetImage } from '../utils/images';
+
+interface Props {
+  title: string;
+  backgroundImage?: string;
+}
+
+const { title, backgroundImage } = Astro.props;
+
+let backgroundImageUrl: string | null = null;
+if (backgroundImage) {
+  const backgroundMeta = await loadAssetImage(backgroundImage);
+  backgroundImageUrl = backgroundMeta ? (await getImage({ src: backgroundMeta })).src : backgroundImage;
+}
+---
+
+<!doctype html>
+<html lang="fr" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} — La Troupe du Rez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+<body class="page-body">
+
+  {backgroundImageUrl && (
+    <div class="page-backdrop">
+      <img
+        src={backgroundImageUrl}
+        alt=""
+        class="page-backdrop-img"
+      />
+      <div class="page-backdrop-overlay"></div>
+    </div>
+  )}
+
+  <Navbar />
+
+  <main class="page-main">
+    <slot />
+  </main>
+
+</body>
+</html>

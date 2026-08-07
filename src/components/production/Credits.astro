@@ -1,0 +1,44 @@
+---
+interface Props {
+  annex?: string;
+  sponsoring?: { name: string }[];
+}
+
+const { annex, sponsoring } = Astro.props;
+
+function parseMarkdownLinks(text: string) {
+  return text.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70 transition-opacity">$1</a>',
+  );
+}
+---
+
+<footer class="content-section text-center space-y-12">
+  {annex && (
+    <div>
+      <a
+        href="#"
+        class="inline-block text-xs uppercase tracking-[0.2em] text-white border-b border-white pb-1 hover:opacity-70 transition-opacity"
+      >
+        Télécharger le dossier de présentation (PDF)
+      </a>
+    </div>
+  )}
+
+  {sponsoring && (
+    <div class="space-y-4 pt-4">
+      <span class="text-[10px] uppercase tracking-[0.3em] text-neutral-400 block font-medium">
+        Soutiens & Partenaires
+      </span>
+      <div class="space-y-1 max-w-xl mx-auto">
+        {sponsoring.map((sponsor) => (
+          <p
+            class="text-xs font-light text-neutral-400 leading-relaxed"
+            set:html={parseMarkdownLinks(sponsor.name)}
+          />
+        ))}
+      </div>
+    </div>
+  )}
+</footer>
