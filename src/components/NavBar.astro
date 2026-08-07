@@ -1,0 +1,67 @@
+---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/logo.jpeg';
+---
+<header class="navbar">
+  <nav class="nav-container">
+    
+    <a href="/" class="brand">
+      <Image 
+        src={logoImage} 
+        alt="Logo La Troupe du Rez" 
+        class="brand-img"
+      />
+    </a>
+
+    <div class="desktop-menu">
+      <a href="/" class="nav-link">Les Figurants</a>
+      <div class="dropdown group">
+        <button class="nav-link dropdown-btn">
+          Présentations
+          <svg class="chevron" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="dropdown-content">
+          <a href="/presentations/troupe" class="dropdown-item">La Troupe</a>
+          <a href="/productions/membres" class="dropdown-item">Ses membres</a>
+        </div>
+      </div>
+      
+      <div class="dropdown group">
+        <button class="nav-link dropdown-btn">
+          Productions
+          <svg class="chevron" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="dropdown-content">
+          <a href="/productions/dissection" class="dropdown-item">Dissection d'une chute de neige</a>
+          <a href="/productions/xi" class="dropdown-item">Xi</a>
+          <a href="/productions/physiciens" class="dropdown-item">Les Physiciens</a>
+        </div>
+      </div>
+
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+
+    <button id="menu-btn" class="mobile-btn" aria-label="Menu">
+      <svg class="icon" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="mobile-menu hidden">
+    <a href="/actualites" class="mobile-link">Actualités</a>
+    <a href="/la-compagnie" class="mobile-link">La Compagnie</a>
+    <a href="/productions" class="mobile-link">Productions</a>
+    <a href="/contact" class="mobile-link">Contact</a>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+</script>

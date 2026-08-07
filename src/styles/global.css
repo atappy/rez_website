@@ -1,1 +1,130 @@
+/* src/styles/global.css */
 @import "tailwindcss";
+
+@theme {
+    --font-logo: " Gravitas One", serif;
+}
+
+@layer components {
+
+    /* --- Navbar Styles --- */
+    .navbar {
+        @apply top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100;
+    }
+
+    .nav-container {
+        @apply relative max-w-7xl mx-auto px-6 h-30 flex items-center justify-between;
+    }
+
+
+    .brand {
+        @apply flex items-center;
+    }
+
+    .brand-img {
+        @apply h-25 w-25;
+
+        @apply rounded-full;
+
+        @apply object-cover;
+
+        @apply shadow-inner border border-gray-100;
+    }
+
+    /* --- End New Logo Styles --- */
+
+    .nav-link {
+        @apply text-sm font-light text-gray-600 hover:text-black transition-colors;
+    }
+
+    .desktop-menu {
+        @apply hidden md:flex items-center space-x-8 md:absolute md:left-1/2 md:-translate-x-1/2;
+    }
+
+    .dropdown {
+        @apply relative py-6;
+    }
+
+    .dropdown-btn {
+        @apply flex items-center gap-1 cursor-pointer;
+    }
+
+    .chevron {
+        @apply w-4 h-4 fill-none stroke-current transition-transform group-hover:rotate-180;
+    }
+
+    .dropdown-content {
+        @apply absolute top-16 left-0 w-48 bg-white border border-gray-100 shadow-sm rounded-sm py-2 hidden group-hover:block;
+    }
+
+    .dropdown-item {
+        @apply block px-4 py-2 text-sm font-light text-gray-600 hover:bg-gray-50 hover:text-black;
+    }
+
+    .mobile-btn {
+        @apply md:hidden text-gray-800 focus:outline-none cursor-pointer;
+    }
+
+    .icon {
+        @apply w-6 h-6 fill-none stroke-current;
+    }
+
+    .mobile-menu {
+        @apply md:hidden bg-white border-b border-gray-100 px-6 py-4 space-y-4;
+    }
+
+    .mobile-link {
+        @apply block text-gray-600 font-light hover:text-black;
+    }
+
+    /* --- Landing Page / Hero Styles (Unchanged) --- */
+    .hero-section {
+        @apply relative flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] text-center px-4;
+    }
+
+    .hero-title {
+        @apply text-5xl md:text-7xl font-light text-gray-900 uppercase tracking-widest mb-6;
+    }
+
+    .hero-subtitle {
+        @apply text-lg md:text-xl text-gray-500 font-light max-w-2xl mx-auto mb-10;
+    }
+
+    .btn-primary {
+        @apply inline-block px-8 py-3 border border-gray-900 text-gray-900 text-sm uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-colors duration-300;
+    }
+
+
+    .prod-hero {
+        @apply w-full h-[60vh] min-h-[400px] bg-cover bg-center bg-no-repeat flex items-center justify-center text-center px-4;
+    }
+
+    .prod-title {
+        @apply text-4xl md:text-6xl text-white font-logo tracking-wide;
+    }
+
+    .prod-container {
+        @apply max-w-6xl mx-auto px-6 py-16 space-y-24;
+    }
+
+    .section-heading {
+        @apply text-2xl font-logo text-gray-900 mb-8 pb-4 border-b border-gray-200;
+    }
+
+    /* The Alternating Card System */
+    .prod-card {
+        @apply flex flex-col md:flex-row gap-12 md:gap-24 items-start;
+    }
+
+    .prod-card.flex-row-reverse {
+        @apply md:flex-row-reverse;
+    }
+
+    .prod-card-img {
+        @apply w-full md:w-5/12 flex-shrink-0;
+    }
+
+    .prod-card-content {
+        @apply w-full md:w-7/12;
+    }
+}

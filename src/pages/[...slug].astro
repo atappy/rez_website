@@ -1,0 +1,36 @@
+---
+import ProductionLayout from '../layouts/ProductionLayout.astro';
+
+export async function getStaticPaths() {
+  const pieces = import.meta.glob('../pieces/*.md', { eager: true });
+  const productions = Object.values(pieces);
+
+  return productions
+    .filter((production: any) => production.frontmatter?.route !== undefined)
+    .map((production: any) => {
+      const rawRoute = production.frontmatter.route;
+
+      let slug: string | undefined;
+
+      if (rawRoute === '/' || rawRoute === '') {
+        slug = undefined;
+      } else if (rawRoute.startsWith('/')) {
+        slug = rawRoute.slice(1);
+      } else {
+        slug = rawRoute;
+      }
+
+      return {
+        params: { slug },
+        props: { production },
+      };
+    });
+}
+
+const { production } = Astro.props;
+const { Content, frontmatter } = production;
+---
+
+<ProductionLayout frontmatter={frontmatter}>
+  <Content />
+</ProductionLayout>
