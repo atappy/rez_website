@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  eyebrow?: string;
+  theme?: 'dark' | 'light';
+}
+
+const { title, eyebrow = 'Spectacle', theme = 'dark' } = Astro.props;
+const titleColor = theme === 'light' ? 'text-neutral-900' : 'text-white drop-shadow-lg';
+const eyebrowColor = theme === 'light' ? 'text-neutral-500' : 'text-neutral-400';
+---
+
+<header class="text-center space-y-4">
+  <span class={`text-xs uppercase tracking-[0.35em] block font-light ${eyebrowColor}`}>{eyebrow}</span>
+  <h1 class={`text-4xl md:text-7xl font-serif font-normal tracking-tight leading-tight ${titleColor}`}>{title}</h1>
+</header>

@@ -187,24 +187,96 @@
 
     /* --- Members Page --- */
     .members-grid {
-        @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-5;
+        @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
     }
 
     .member-card {
-        @apply flex flex-col items-center text-center gap-3 bg-white rounded-lg shadow-sm border border-neutral-200/80 p-5;
+        @apply flex flex-col items-center text-center gap-4 rounded-lg shadow-sm border p-7;
+    }
+
+    .member-card-light {
+        @apply bg-white border-neutral-200/80;
+    }
+
+    .member-card-dark {
+        @apply bg-white/5 border-white/10;
     }
 
     .member-photo {
-        @apply w-20 h-20 rounded-full overflow-hidden bg-neutral-100 flex items-center justify-center;
+        @apply w-32 h-32 rounded-full overflow-hidden flex items-center justify-center;
+    }
+
+    .member-photo-light {
+        @apply bg-neutral-100;
+    }
+
+    .member-photo-dark {
+        @apply bg-white/10;
+    }
+
+    .member-initial-light {
+        @apply text-neutral-500;
+    }
+
+    .member-initial-dark {
+        @apply text-neutral-400;
     }
 
     .member-details {
         @apply space-y-2;
     }
 
+    .member-name-light {
+        @apply text-neutral-900;
+    }
+
+    .member-name-dark {
+        @apply text-white;
+    }
+
+    .member-meta-light {
+        @apply text-neutral-500;
+    }
+
+    .member-meta-dark {
+        @apply text-neutral-400;
+    }
+
+    .member-history-light {
+        @apply text-neutral-600;
+    }
+
+    .member-history-dark {
+        @apply text-neutral-300;
+    }
+
+    .member-history-year-light {
+        @apply text-neutral-400;
+    }
+
+    .member-history-year-dark {
+        @apply text-neutral-500;
+    }
+
+    .member-history-show-light {
+        @apply text-neutral-900;
+    }
+
+    .member-history-show-dark {
+        @apply text-white;
+    }
+
     /* --- Simple Prose Pages --- */
     .prose-body {
-        @apply max-w-2xl mx-auto space-y-6 text-neutral-700 font-light leading-relaxed text-lg;
+        @apply max-w-2xl mx-auto space-y-6 font-light leading-relaxed text-lg;
+    }
+
+    .prose-body-light {
+        @apply text-neutral-700;
+    }
+
+    .prose-body-dark {
+        @apply text-neutral-300;
     }
 
     /* --- Contact Page --- */

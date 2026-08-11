@@ -1,0 +1,38 @@
+---
+interface Props {
+  theme?: 'dark' | 'light';
+}
+
+const { theme = 'dark' } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class={`site-footer site-footer-${theme}`}>
+  <div class="site-footer-inner">
+    <span class={`site-footer-heading site-footer-heading-${theme}`}>Newsletter</span>
+    <p class={`site-footer-text site-footer-text-${theme}`}>
+      Restez informé·e des prochaines représentations et actualités de la Troupe du Rez.
+    </p>
+    <a
+      href="mailto:Contact@troupedurez.ch?subject=Abonnement%20newsletter"
+      class={`site-footer-cta site-footer-cta-${theme}`}
+    >
+      S'abonner par e-mail
+    </a>
+
+    <div class={`site-footer-meta site-footer-meta-${theme}`}>
+      <span>© {year} La Troupe du Rez</span>
+      <div class="site-footer-meta-links">
+        <a href="/contact" class="site-footer-meta-link">Contact</a>
+        <a
+          href="https://www.instagram.com/troupe.du.rez/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="site-footer-meta-link"
+        >
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

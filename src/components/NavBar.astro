@@ -2,8 +2,14 @@
 import { Image } from 'astro:assets';
 import logoImage from '../assets/logo-mark.png';
 import { navigation, isNavGroup } from '../data/navigation';
+
+interface Props {
+  theme?: 'dark' | 'light';
+}
+
+const { theme = 'dark' } = Astro.props;
 ---
-<header class="navbar">
+<header class={`navbar navbar-${theme}`}>
   <nav class="nav-container">
 
     <a href="/" class="brand">
@@ -18,42 +24,42 @@ import { navigation, isNavGroup } from '../data/navigation';
       {navigation.map((entry) =>
         isNavGroup(entry) ? (
           <div class="dropdown group">
-            <button class="nav-link dropdown-btn">
+            <button class={`nav-link nav-link-${theme} dropdown-btn`}>
               {entry.label}
               <svg class="chevron" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div class="dropdown-content">
+            <div class={`dropdown-content dropdown-content-${theme}`}>
               {entry.items.map((item) => (
-                <a href={item.href} class="dropdown-item">{item.label}</a>
+                <a href={item.href} class={`dropdown-item dropdown-item-${theme}`}>{item.label}</a>
               ))}
             </div>
           </div>
         ) : (
-          <a href={entry.href} class="nav-link">{entry.label}</a>
+          <a href={entry.href} class={`nav-link nav-link-${theme}`}>{entry.label}</a>
         )
       )}
     </div>
 
-    <button id="menu-btn" class="mobile-btn" aria-label="Menu">
+    <button id="menu-btn" class={`mobile-btn mobile-btn-${theme}`} aria-label="Menu">
       <svg class="icon" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
   </nav>
 
-  <div id="mobile-menu" class="mobile-menu hidden">
+  <div id="mobile-menu" class={`mobile-menu mobile-menu-${theme} hidden`}>
     {navigation.map((entry) =>
       isNavGroup(entry) ? (
         <div class="mobile-group">
-          <span class="mobile-group-label">{entry.label}</span>
+          <span class={`mobile-group-label mobile-group-label-${theme}`}>{entry.label}</span>
           {entry.items.map((item) => (
-            <a href={item.href} class="mobile-link mobile-link-nested">{item.label}</a>
+            <a href={item.href} class={`mobile-link mobile-link-${theme} mobile-link-nested`}>{item.label}</a>
           ))}
         </div>
       ) : (
-        <a href={entry.href} class="mobile-link">{entry.label}</a>
+        <a href={entry.href} class={`mobile-link mobile-link-${theme}`}>{entry.label}</a>
       )
     )}
   </div>

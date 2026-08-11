@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import SimplePageLayout from '../../layouts/SimplePageLayout.astro';
+import MemberCard from '../../components/members/MemberCard.astro';
+
+const members = (await getCollection('members')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<SimplePageLayout title="Ses membres" eyebrow="Présentation" theme="dark" wide>
+  <div class="members-grid">
+    {members.map((member) => (
+      <MemberCard
+        name={member.data.name}
+        photo={member.data.photo}
+        adore={member.data.adore}
+        deteste={member.data.deteste}
+        history={member.data.history}
+        theme="dark"
+      />
+    ))}
+  </div>
+</SimplePageLayout>

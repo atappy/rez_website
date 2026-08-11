@@ -2,7 +2,7 @@
 // src/layouts/ProductionLayout.astro
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
-import Hero from '../components/production/Hero.astro';
+import PageHeader from '../components/PageHeader.astro';
 import Synopsis from '../components/production/Synopsis.astro';
 import Cast from '../components/production/Cast.astro';
 import DatesAndBooking from '../components/production/DatesAndBooking.astro';
@@ -17,7 +17,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title} backgroundImage={frontmatter.bgImage}>
-  <Hero title={frontmatter.title} />
+  <PageHeader title={frontmatter.title} />
 
   <Synopsis title={frontmatter.title} poster={frontmatter.poster}>
     <slot />

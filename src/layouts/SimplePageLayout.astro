@@ -1,0 +1,20 @@
+---
+// src/layouts/SimplePageLayout.astro
+import BaseLayout from './BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+interface Props {
+  title: string;
+  eyebrow?: string;
+  backgroundImage?: string;
+  theme?: 'dark' | 'light';
+  wide?: boolean;
+}
+
+const { title, eyebrow, backgroundImage, theme = 'dark', wide = false } = Astro.props;
+---
+
+<BaseLayout title={title} backgroundImage={backgroundImage} theme={theme} wide={wide}>
+  <PageHeader title={title} eyebrow={eyebrow} theme={theme} />
+  <slot />
+</BaseLayout>

@@ -1,15 +1,21 @@
 ---
 import '../styles/global.css';
 import Navbar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
 import { getImage } from 'astro:assets';
 import { loadAssetImage } from '../utils/images';
+import { ClientRouter, fade } from 'astro:transitions';
+
+const pageFade = fade({ duration: '0.4s' });
 
 interface Props {
   title: string;
   backgroundImage?: string;
+  theme?: 'dark' | 'light';
+  wide?: boolean;
 }
 
-const { title, backgroundImage } = Astro.props;
+const { title, backgroundImage, theme = 'dark', wide = false } = Astro.props;
 
 let backgroundImageUrl: string | null = null;
 if (backgroundImage) {
@@ -27,11 +33,18 @@ if (backgroundImage) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <ClientRouter />
 </head>
-<body class="page-body">
+<body class={theme === 'light' ? 'page-body-light' : 'page-body'}>
 
   {backgroundImageUrl && (
-    <div class="page-backdrop">
+    <div class="page-backdrop" transition:animate={pageFade}>
+      <img
+        src={backgroundImageUrl}
+        alt=""
+        aria-hidden="true"
+        class="page-backdrop-fill"
+      />
       <img
         src={backgroundImageUrl}
         alt=""
@@ -41,11 +54,13 @@ if (backgroundImage) {
     </div>
   )}
 
-  <Navbar />
+  <Navbar theme={theme} />
 
-  <main class="page-main">
+  <main class={wide ? 'page-main-wide' : 'page-main'} transition:animate={pageFade}>
     <slot />
   </main>
+
+  <Footer theme={theme} />
 
 </body>
 </html>

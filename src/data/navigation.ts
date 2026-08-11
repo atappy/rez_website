@@ -15,7 +15,7 @@ export function isNavGroup(entry: NavEntry): entry is NavGroup {
 }
 
 export const navigation: NavEntry[] = [
-  { label: 'Les Figurants', href: '/' },
+  { label: 'Actualités', href: '/' },
   {
     label: 'Présentations',
     items: [
@@ -27,9 +27,8 @@ export const navigation: NavEntry[] = [
     label: 'Productions',
     items: [
       { label: "Dissection d'une chute de neige", href: '/productions/dissection' },
-      { label: 'Xi', href: '/productions/xi' },
+      { label: 'XI', href: '/productions/xi' },
       { label: 'Les Physiciens', href: '/productions/physiciens' },
     ],
   },
-  { label: 'Contact', href: '/contact' },
 ];

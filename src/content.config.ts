@@ -38,7 +38,7 @@ const pieces = defineCollection({
         }),
       )
       .optional(),
-    annex: z.string().optional(),
+    annex: z.array(z.string()).optional(),
     sponsoring: z
       .array(
         z.object({
@@ -49,4 +49,23 @@ const pieces = defineCollection({
   }),
 });
 
-export const collections = { pieces };
+const members = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/members' }),
+  schema: z.object({
+    order: z.number(),
+    name: z.string(),
+    photo: z.string().optional(),
+    adore: z.string().optional(),
+    deteste: z.string().optional(),
+    history: z.array(
+      z.object({
+        years: z.string(),
+        role: z.string(),
+        show: z.string(),
+        venue: z.string(),
+      }),
+    ),
+  }),
+});
+
+export const collections = { pieces, members };

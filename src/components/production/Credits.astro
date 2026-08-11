@@ -1,6 +1,6 @@
 ---
 interface Props {
-  annex?: string;
+  annex?: string[];
   sponsoring?: { name: string }[];
 }
 
@@ -16,13 +16,18 @@ function parseMarkdownLinks(text: string) {
 
 <footer class="content-section text-center space-y-12">
   {annex && (
-    <div>
-      <a
-        href="#"
-        class="inline-block text-xs uppercase tracking-[0.2em] text-white border-b border-white pb-1 hover:opacity-70 transition-opacity"
-      >
-        Télécharger le dossier de présentation (PDF)
-      </a>
+    <div class="space-y-2">
+      <span class="text-[10px] uppercase tracking-[0.3em] text-neutral-400 block font-medium">
+        Ressources
+      </span>
+      <div class="space-y-1 max-w-xl mx-auto">
+        {annex.map((line) => (
+          <p
+            class="text-xs font-light text-neutral-300 leading-relaxed"
+            set:html={parseMarkdownLinks(line)}
+          />
+        ))}
+      </div>
     </div>
   )}
 
