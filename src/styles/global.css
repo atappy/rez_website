@@ -143,6 +143,15 @@
         @apply pl-4;
     }
 
+    /* --- Utilities --- */
+    .img-fade {
+        @apply opacity-0 transition-opacity duration-700 ease-out;
+    }
+
+    .img-fade.is-loaded {
+        @apply opacity-100;
+    }
+
     /* --- Page Shell (BaseLayout) --- */
     .page-body {
         @apply bg-neutral-950 text-white font-sans antialiased selection:bg-white selection:text-black min-h-full relative;
@@ -157,11 +166,19 @@
     }
 
     .page-backdrop-fill {
-        @apply absolute top-0 inset-x-0 w-full h-auto opacity-40 filter brightness-90 blur-2xl scale-110;
+        @apply absolute top-0 inset-x-0 w-full h-auto opacity-0 filter brightness-90 blur-2xl scale-110 transition-opacity duration-1000 ease-out;
+    }
+
+    .page-backdrop-fill.is-loaded {
+        @apply opacity-40;
     }
 
     .page-backdrop-img {
-        @apply absolute top-0 inset-x-0 w-full h-auto opacity-40 filter brightness-90;
+        @apply absolute top-0 inset-x-0 w-full h-auto opacity-0 filter brightness-90 transition-opacity duration-1000 ease-out;
+    }
+
+    .page-backdrop-img.is-loaded {
+        @apply opacity-40;
     }
 
     .page-backdrop-overlay {

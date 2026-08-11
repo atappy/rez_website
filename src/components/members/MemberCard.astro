@@ -22,9 +22,19 @@ const suffix = theme === 'dark' ? 'dark' : 'light';
 <article class={`member-card member-card-${suffix}`}>
   <div class={`member-photo member-photo-${suffix}`}>
     {photoMetadata ? (
-      <Image src={photoMetadata} alt={name} class="w-full h-full object-cover" />
+      <Image
+        src={photoMetadata}
+        alt={name}
+        class="w-full h-full object-cover img-fade"
+        onload="this.classList.add('is-loaded')"
+      />
     ) : photoFallbackUrl ? (
-      <img src={photoFallbackUrl} alt={name} class="w-full h-full object-cover" />
+      <img
+        src={photoFallbackUrl}
+        alt={name}
+        class="w-full h-full object-cover img-fade"
+        onload="this.classList.add('is-loaded')"
+      />
     ) : (
       <span class={`text-4xl font-serif member-initial-${suffix}`}>{initial}</span>
     )}

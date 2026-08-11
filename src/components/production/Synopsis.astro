@@ -24,13 +24,15 @@ const hasPoster = posterMetadata || posterFallbackUrl;
           <Image
             src={posterMetadata}
             alt={`Affiche ${title}`}
-            class="w-full h-auto object-cover shadow-2xl"
+            class="w-full h-auto object-cover shadow-2xl img-fade"
+            onload="this.classList.add('is-loaded')"
           />
         ) : (
           <img
             src={posterFallbackUrl!}
             alt={`Affiche ${title}`}
-            class="w-full h-auto object-cover shadow-2xl"
+            class="w-full h-auto object-cover shadow-2xl img-fade"
+            onload="this.classList.add('is-loaded')"
           />
         )}
       </div>

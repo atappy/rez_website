@@ -44,11 +44,13 @@ if (backgroundImage) {
         alt=""
         aria-hidden="true"
         class="page-backdrop-fill"
+        onload="this.classList.add('is-loaded')"
       />
       <img
         src={backgroundImageUrl}
         alt=""
         class="page-backdrop-img"
+        onload="this.classList.add('is-loaded')"
       />
       <div class="page-backdrop-overlay"></div>
     </div>
