@@ -1,6 +1,7 @@
 ---
 order: 11
 name: "Bastien Mottier"
+photo: "/assets/bastien.jpg"
 history:
   - years: "2026"
     role: "Stagiaire communication"

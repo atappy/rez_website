@@ -1,6 +1,7 @@
 ---
 order: 2
 name: "Simon Délétroz"
+photo: "/assets/simon.jpg"
 history:
   - years: "2026"
     role: "Jeu et réalisation de vidéos"

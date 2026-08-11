@@ -1,6 +1,7 @@
 ---
 order: 9
 name: "Antoine Moix"
+photo: "/assets/bantoine.jpg"
 history:
   - years: "2026"
     role: "Jeu"

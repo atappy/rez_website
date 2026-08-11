@@ -1,6 +1,7 @@
 ---
 order: 4
 name: "Jules Dussez"
+photo: "/assets/jules.jpg"
 history:
   - years: "2023 – 2024"
     role: "Jeu"

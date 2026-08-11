@@ -5,7 +5,15 @@
 
     /* --- Navbar Styles --- */
     .navbar {
-        @apply fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm;
+        @apply fixed inset-x-0 top-0 z-50 backdrop-blur-sm border-b shadow-sm transition-colors;
+    }
+
+    .navbar-light {
+        @apply bg-[#f7f2e9]/95 border-neutral-900/10;
+    }
+
+    .navbar-dark {
+        @apply bg-neutral-950/80 border-white/10;
     }
 
     .nav-container {
@@ -21,7 +29,15 @@
     }
 
     .nav-link {
-        @apply text-sm font-light text-gray-600 hover:text-black transition-colors;
+        @apply text-sm font-light transition-colors;
+    }
+
+    .nav-link-light {
+        @apply text-neutral-600 hover:text-neutral-900;
+    }
+
+    .nav-link-dark {
+        @apply text-neutral-300 hover:text-white;
     }
 
     .desktop-menu {
@@ -41,18 +57,42 @@
     }
 
     .dropdown-content {
-        @apply absolute top-12 left-1/2 -translate-x-1/2 w-56 bg-white border border-gray-100 shadow-lg rounded-sm py-2
+        @apply absolute top-12 left-1/2 -translate-x-1/2 w-56 border shadow-lg rounded-sm py-2
                opacity-0 invisible -translate-y-1
                transition-all duration-200
                group-hover:opacity-100 group-hover:visible group-hover:translate-y-0;
     }
 
+    .dropdown-content-light {
+        @apply bg-[#f7f2e9] border-neutral-900/10;
+    }
+
+    .dropdown-content-dark {
+        @apply bg-neutral-900 border-white/10;
+    }
+
     .dropdown-item {
-        @apply block px-4 py-2 text-sm font-light text-gray-600 hover:bg-gray-50 hover:text-black transition-colors;
+        @apply block px-4 py-2 text-sm font-light transition-colors;
+    }
+
+    .dropdown-item-light {
+        @apply text-neutral-600 hover:bg-neutral-900/5 hover:text-neutral-900;
+    }
+
+    .dropdown-item-dark {
+        @apply text-neutral-300 hover:bg-white/5 hover:text-white;
     }
 
     .mobile-btn {
-        @apply md:hidden text-gray-800 focus:outline-none cursor-pointer;
+        @apply md:hidden focus:outline-none cursor-pointer transition-colors;
+    }
+
+    .mobile-btn-light {
+        @apply text-neutral-800;
+    }
+
+    .mobile-btn-dark {
+        @apply text-white;
     }
 
     .icon {
@@ -60,11 +100,27 @@
     }
 
     .mobile-menu {
-        @apply md:hidden bg-white border-b border-gray-100 shadow-sm px-6 py-4 space-y-4;
+        @apply md:hidden border-b shadow-sm px-6 py-4 space-y-4;
+    }
+
+    .mobile-menu-light {
+        @apply bg-[#f7f2e9] border-neutral-900/10;
+    }
+
+    .mobile-menu-dark {
+        @apply bg-neutral-950 border-white/10;
     }
 
     .mobile-link {
-        @apply block text-gray-600 font-light hover:text-black;
+        @apply block font-light transition-colors;
+    }
+
+    .mobile-link-light {
+        @apply text-neutral-600 hover:text-neutral-900;
+    }
+
+    .mobile-link-dark {
+        @apply text-neutral-300 hover:text-white;
     }
 
     .mobile-group {
@@ -72,7 +128,15 @@
     }
 
     .mobile-group-label {
-        @apply block text-xs uppercase tracking-wider text-gray-400 font-medium pt-2;
+        @apply block text-xs uppercase tracking-wider font-medium pt-2;
+    }
+
+    .mobile-group-label-light {
+        @apply text-neutral-400;
+    }
+
+    .mobile-group-label-dark {
+        @apply text-neutral-500;
     }
 
     .mobile-link-nested {
@@ -84,12 +148,20 @@
         @apply bg-neutral-950 text-white font-sans antialiased selection:bg-white selection:text-black min-h-full relative;
     }
 
+    .page-body-light {
+        @apply bg-[#f7f2e9] text-neutral-900 font-sans antialiased selection:bg-neutral-900 selection:text-[#f7f2e9] min-h-full relative;
+    }
+
     .page-backdrop {
         @apply fixed inset-x-0 bottom-0 top-20 -z-10 overflow-hidden pointer-events-none;
     }
 
+    .page-backdrop-fill {
+        @apply absolute top-0 inset-x-0 w-full h-auto opacity-40 filter brightness-90 blur-2xl scale-110;
+    }
+
     .page-backdrop-img {
-        @apply w-full h-full object-cover object-top opacity-40 filter brightness-90;
+        @apply absolute top-0 inset-x-0 w-full h-auto opacity-40 filter brightness-90;
     }
 
     .page-backdrop-overlay {
@@ -100,6 +172,10 @@
         @apply relative z-10 max-w-4xl mx-auto px-6 pt-28 pb-24 space-y-20 md:space-y-28;
     }
 
+    .page-main-wide {
+        @apply relative z-10 max-w-6xl mx-auto px-6 pt-28 pb-24 space-y-20 md:space-y-28;
+    }
+
     /* --- Production Page Sections --- */
     .content-section {
         @apply pt-16 md:pt-20;
@@ -107,5 +183,113 @@
 
     .section-label {
         @apply text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400;
+    }
+
+    /* --- Members Page --- */
+    .members-grid {
+        @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-5;
+    }
+
+    .member-card {
+        @apply flex flex-col items-center text-center gap-3 bg-white rounded-lg shadow-sm border border-neutral-200/80 p-5;
+    }
+
+    .member-photo {
+        @apply w-20 h-20 rounded-full overflow-hidden bg-neutral-100 flex items-center justify-center;
+    }
+
+    .member-details {
+        @apply space-y-2;
+    }
+
+    /* --- Simple Prose Pages --- */
+    .prose-body {
+        @apply max-w-2xl mx-auto space-y-6 text-neutral-700 font-light leading-relaxed text-lg;
+    }
+
+    /* --- Contact Page --- */
+    .contact-info {
+        @apply max-w-md mx-auto text-center space-y-3 text-neutral-700 font-light text-lg;
+    }
+
+    .contact-org {
+        @apply text-xl font-serif text-neutral-900;
+    }
+
+    .contact-email {
+        @apply inline-block underline hover:opacity-70 transition-opacity;
+    }
+
+    /* --- Site Footer --- */
+    .site-footer {
+        @apply relative z-10 border-t;
+    }
+
+    .site-footer-dark {
+        @apply bg-neutral-950 text-neutral-300 border-white/10;
+    }
+
+    .site-footer-light {
+        @apply bg-[#f7f2e9] text-neutral-600 border-neutral-900/10;
+    }
+
+    .site-footer-inner {
+        @apply max-w-4xl mx-auto px-6 py-16 text-center space-y-4;
+    }
+
+    .site-footer-heading {
+        @apply text-xs uppercase tracking-[0.3em] font-medium block;
+    }
+
+    .site-footer-heading-dark {
+        @apply text-neutral-400;
+    }
+
+    .site-footer-heading-light {
+        @apply text-neutral-500;
+    }
+
+    .site-footer-text {
+        @apply text-sm font-light max-w-md mx-auto;
+    }
+
+    .site-footer-text-dark {
+        @apply text-neutral-400;
+    }
+
+    .site-footer-text-light {
+        @apply text-neutral-500;
+    }
+
+    .site-footer-cta {
+        @apply inline-block border text-xs uppercase tracking-[0.2em] px-6 py-3 transition-colors;
+    }
+
+    .site-footer-cta-dark {
+        @apply border-white/30 text-white hover:bg-white hover:text-black;
+    }
+
+    .site-footer-cta-light {
+        @apply border-neutral-900/30 text-neutral-900 hover:bg-neutral-900 hover:text-[#f7f2e9];
+    }
+
+    .site-footer-meta {
+        @apply pt-10 mt-10 border-t flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-light;
+    }
+
+    .site-footer-meta-dark {
+        @apply border-white/10 text-neutral-500;
+    }
+
+    .site-footer-meta-light {
+        @apply border-neutral-900/10 text-neutral-500;
+    }
+
+    .site-footer-meta-links {
+        @apply flex items-center gap-5;
+    }
+
+    .site-footer-meta-link {
+        @apply hover:opacity-70 transition-opacity;
     }
 }

@@ -1,6 +1,7 @@
 ---
 order: 7
 name: "Robin Loretan"
+photo: "/assets/robin.jpg"
 history:
   - years: "2026"
     role: "Jeu"

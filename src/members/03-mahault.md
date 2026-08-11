@@ -1,6 +1,7 @@
 ---
 order: 3
 name: "Mahault Disero"
+photo: "/assets/mahault.jpg"
 history:
   - years: "2026"
     role: "Jeu"

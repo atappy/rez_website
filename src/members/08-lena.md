@@ -1,6 +1,7 @@
 ---
 order: 8
 name: "Lena Loye"
+photo: "/assets/lena.jpg"
 history:
   - years: "2026"
     role: "Jeu"

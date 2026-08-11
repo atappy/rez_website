@@ -1,6 +1,7 @@
 ---
 order: 10
 name: "Margot Monnier"
+photo: "/assets/margot.jpg"
 history:
   - years: "2026"
     role: "Jeu"

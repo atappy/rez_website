@@ -1,6 +1,7 @@
 ---
 order: 1
 name: "Marion Cleusix"
+photo: "/assets/marion.jpg"
 history:
   - years: "2023 – 2024"
     role: "Jeu"

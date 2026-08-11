@@ -1,6 +1,8 @@
 ---
 route: "/productions/xi"
 title: "XI"
+bgImage: "/assets/xi-background.jpg"
+poster: "/assets/xi.jpg"
 generic:
     - role: "Jeu"
       name: "Marion Cleusix, Simon Délétroz, Mahault Disero, Jules Dussez, Romane Dussez, Hadrien Halter, Robin Loretan, Lena Loye, Antoine Moix, Margot Monnier, Bastien Mottier"

@@ -1,6 +1,7 @@
 ---
 order: 6
 name: "Hadrien Halter"
+photo: "/assets/hadrien.jpg"
 history:
   - years: "2026"
     role: "Jeu"

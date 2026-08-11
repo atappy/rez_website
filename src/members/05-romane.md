@@ -1,6 +1,7 @@
 ---
 order: 5
 name: "Romane Dussez"
+photo: "/assets/romane.jpg"
 history:
   - years: "2026"
     role: "Mise en scène et jeu"

@@ -1,6 +1,8 @@
 ---
 route: "/productions/physiciens"
 title: "Les Physiciens"
+bgImage: "/assets/physiciens-background.jpg"
+poster: "/assets/physiciens.jpg"
 generic:
     - role: "Jeu"
       name: "Marion Cleusix, Simon Délétroz, Mahault Disero, Jules Dussez, Romane Dussez, Lena Loye, Hadrien Halter, Tom Loretan, Robin Loretan, Antoine Moix, Margot Monnier, Bastien Mottier, Roxane Nemeth"

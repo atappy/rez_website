@@ -1,6 +1,8 @@
 ---
 route: "/productions/dissection"
 title: "Dissection d'une chute de neige"
+bgImage: "/assets/dissection-background.jpg"
+poster: "/assets/dissection.jpg"
 generic:
     - role: "Jeu"
       name: "Marion Cleusix, Simon Délétroz, Mahault Disero, Jules Dussez, Romane Dussez, Hadrien Halter, Robin Loretan, Antoine Moix, Bastien Mottier"

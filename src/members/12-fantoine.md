@@ -1,6 +1,7 @@
 ---
 order: 12
 name: "Antoine Tappy"
+photo: "/assets/fantoine.jpg"
 history:
   - years: "2026"
     role: "Régie et jeu"
