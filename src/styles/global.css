@@ -152,6 +152,20 @@
         @apply opacity-100;
     }
 
+    .reveal-up {
+        @apply opacity-0 translate-y-8 transition-[opacity,transform] duration-700 ease-out;
+    }
+
+    .reveal-up.is-visible {
+        @apply opacity-100 translate-y-0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .reveal-up {
+            @apply opacity-100 translate-y-0 transition-none;
+        }
+    }
+
     /* --- Page Shell (BaseLayout) --- */
     .page-body {
         @apply bg-neutral-950 text-white font-sans antialiased selection:bg-white selection:text-black min-h-full relative;

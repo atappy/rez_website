@@ -16,7 +16,8 @@ const { theme = 'dark' } = Astro.props;
       <Image
         src={logoImage}
         alt="Logo La Troupe du Rez"
-        class="brand-img"
+        class="brand-img img-fade"
+        onload="this.classList.add('is-loaded')"
       />
     </a>
 

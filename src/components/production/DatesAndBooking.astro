@@ -12,8 +12,11 @@ const { representations, reservation } = Astro.props;
     <div class="space-y-8">
       <h2 class="section-label">Dates & Représentations</h2>
       <ul class="divide-y divide-white/10">
-        {representations.map((rep) => (
-          <li class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        {representations.map((rep, i) => (
+          <li
+            class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 reveal-up"
+            style={`transition-delay: ${Math.min(i, 8) * 60}ms`}
+          >
             <span class="font-serif text-lg text-white">{rep.date}</span>
             <span class="text-sm font-light text-neutral-300">{rep.location}</span>
           </li>
@@ -23,7 +26,7 @@ const { representations, reservation } = Astro.props;
   )}
 
   {reservation && (
-    <div class="pt-6 text-center space-y-6">
+    <div class="pt-6 text-center space-y-6 reveal-up">
       <p class="font-light text-neutral-300 text-sm max-w-md mx-auto">{reservation.text}</p>
       <div>
         <a

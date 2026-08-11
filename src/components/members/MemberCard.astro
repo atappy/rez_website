@@ -9,17 +9,19 @@ interface Props {
   deteste?: string;
   history: { years: string; role: string; show: string; venue: string }[];
   theme?: 'dark' | 'light';
+  index?: number;
 }
 
-const { name, photo, adore, deteste, history, theme = 'light' } = Astro.props;
+const { name, photo, adore, deteste, history, theme = 'light', index = 0 } = Astro.props;
 
 const photoMetadata = await loadAssetImage(photo);
 const photoFallbackUrl = photo && !photoMetadata ? photo : null;
 const initial = name.charAt(0);
 const suffix = theme === 'dark' ? 'dark' : 'light';
+const revealDelay = (index % 4) * 80;
 ---
 
-<article class={`member-card member-card-${suffix}`}>
+<article class={`member-card member-card-${suffix} reveal-up`} style={`transition-delay: ${revealDelay}ms`}>
   <div class={`member-photo member-photo-${suffix}`}>
     {photoMetadata ? (
       <Image

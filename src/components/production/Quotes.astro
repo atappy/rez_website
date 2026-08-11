@@ -8,8 +8,8 @@ const { quotes } = Astro.props;
 
 <section class="content-section space-y-12">
   <div class="space-y-12 max-w-3xl mx-auto">
-    {quotes.map((quote) => (
-      <blockquote class="text-center space-y-4">
+    {quotes.map((quote, i) => (
+      <blockquote class="text-center space-y-4 reveal-up" style={`transition-delay: ${Math.min(i, 8) * 100}ms`}>
         <p class="font-serif italic text-xl md:text-2xl text-neutral-100 leading-relaxed">
           « {quote.text} »
         </p>

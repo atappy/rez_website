@@ -8,7 +8,7 @@ const members = (await getCollection('members')).sort((a, b) => a.data.order - b
 
 <SimplePageLayout title="Ses membres" eyebrow="Présentation" theme="dark" wide>
   <div class="members-grid">
-    {members.map((member) => (
+    {members.map((member, i) => (
       <MemberCard
         name={member.data.name}
         photo={member.data.photo}
@@ -16,6 +16,7 @@ const members = (await getCollection('members')).sort((a, b) => a.data.order - b
         deteste={member.data.deteste}
         history={member.data.history}
         theme="dark"
+        index={i}
       />
     ))}
   </div>
