@@ -43,7 +43,7 @@ const { theme = 'dark' } = Astro.props;
       )}
     </div>
 
-    <button id="menu-btn" class={`mobile-btn mobile-btn-${theme}`} aria-label="Menu">
+    <button id="menu-btn" class={`mobile-btn mobile-btn-${theme}`} aria-label="Menu" aria-expanded="false">
       <svg class="icon" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
@@ -67,7 +67,18 @@ const { theme = 'dark' } = Astro.props;
 </header>
 
 <script>
-  const btn = document.getElementById('menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  function setupMobileMenu() {
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', () => {
+      const isHidden = menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', (!isHidden).toString());
+    });
+  }
+
+  setupMobileMenu();
+  document.addEventListener('astro:page-load', setupMobileMenu);
 </script>

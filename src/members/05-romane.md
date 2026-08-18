@@ -12,7 +12,7 @@ history:
     show: "Dissection d'une chute de neige"
     venue: "La Belle Usine, Le Théâtre Indocile, La Grange et Le Nucleo (Unil)"
   - years: "2022 – 2023"
-    role: "Mise en scène, co-écriture et jeu"
+    role: "Mise en scène, jeu et co-écriture"
     show: "XI"
     venue: "Malévoz Quartier Culturel, La Grange, Lycée-Collège de la Planta"
   - years: "2020 – 2022"

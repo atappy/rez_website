@@ -16,7 +16,7 @@ history:
     show: "XI"
     venue: "Malévoz Quartier Culturel, La Grange, Lycée-Collège de la Planta"
   - years: "2020 – 2022"
-    role: "Jeu et mise en scène"
+    role: "Mise en scène et jeu"
     show: "Les Physiciens"
     venue: "Interface, Lycée-Collège de la Planta, La Grange"
 ---
