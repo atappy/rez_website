@@ -31,4 +31,5 @@ export const navigation: NavEntry[] = [
       { label: 'Les Physiciens', href: '/productions/physiciens' },
     ],
   },
+    { label: 'Contact', href: '/contact' },
 ];

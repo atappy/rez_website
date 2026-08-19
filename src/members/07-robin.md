@@ -2,6 +2,8 @@
 order: 7
 name: "Robin Loretan"
 photo: "/assets/robin.jpg"
+adore: "Vivre la nuit"
+deteste: "Voir le soleil se lever"
 history:
   - years: "2026"
     role: "Jeu"

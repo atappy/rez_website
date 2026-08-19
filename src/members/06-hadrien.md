@@ -2,6 +2,8 @@
 order: 6
 name: "Hadrien Halter"
 photo: "/assets/hadrien.jpg"
+adore: "Les lumières, la couleur et les siestes"
+deteste: "Les gens qui mâchent la bouche ouverte"
 history:
   - years: "2026"
     role: "Jeu"

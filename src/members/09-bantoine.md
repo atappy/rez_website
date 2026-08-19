@@ -2,6 +2,8 @@
 order: 9
 name: "Antoine Moix"
 photo: "/assets/bantoine.jpg"
+adore: "Faire des playlists"
+deteste: "Les gens qui disent “j'peux juste mettre un son ?” et c'est toujours Sardou…"
 history:
   - years: "2026"
     role: "Jeu"

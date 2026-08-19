@@ -1,16 +1,45 @@
 ---
+import type {ImageMetadata} from 'astro';
+import {Image} from 'astro:assets';
+
 interface Props {
-  title: string;
-  eyebrow?: string;
-  theme?: 'dark' | 'light';
+    title?: string;
+    title_logo?: ImageMetadata;
+    titleAlt?: string;
+    eyebrow?: string;
+    theme?: 'dark' | 'light';
 }
 
-const { title, eyebrow = 'Spectacle', theme = 'dark' } = Astro.props;
+const {
+    title,
+    title_logo,
+    titleAlt = '',
+    eyebrow = 'Spectacle',
+    theme = 'dark'
+} = Astro.props;
+
 const titleColor = theme === 'light' ? 'text-neutral-900' : 'text-white drop-shadow-lg';
 const eyebrowColor = theme === 'light' ? 'text-neutral-500' : 'text-neutral-400';
+
+const hasImageTitle = Boolean(title_logo);
 ---
 
-<header class="text-center space-y-4 reveal-up">
-  <span class={`text-xs uppercase tracking-[0.35em] block font-light ${eyebrowColor}`}>{eyebrow}</span>
-  <h1 class={`text-4xl md:text-7xl font-serif font-normal tracking-tight leading-tight ${titleColor}`}>{title}</h1>
+<header class="text-center space-y-2 reveal-up">
+  <span class={`text-xs uppercase tracking-[0.35em] block font-light ${eyebrowColor}`}>
+    {eyebrow}
+  </span>
+
+    <h1 class="flex justify-center items-center">
+        {hasImageTitle ? (
+                <Image
+                        src={title_logo!}
+                        alt={titleAlt || title || eyebrow}
+                        class="h-30 md:h-56 w-auto object-contain mx-auto"
+                />
+        ) : (
+                <span class={`text-4xl md:text-7xl font-serif font-normal tracking-tight leading-tight ${titleColor}`}>
+        {title}
+      </span>
+        )}
+    </h1>
 </header>

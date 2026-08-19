@@ -2,6 +2,8 @@
 order: 5
 name: "Romane Dussez"
 photo: "/assets/romane.jpg"
+adore: "Collectionner des stickers sublimes et colorés"
+deteste: "Ne pas oser les coller dans mon journal "
 history:
   - years: "2026"
     role: "Mise en scène et jeu"

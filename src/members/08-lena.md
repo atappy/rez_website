@@ -2,6 +2,8 @@
 order: 8
 name: "Lena Loye"
 photo: "/assets/lena.jpg"
+adore: "Vivre à 200 à l'heure"
+deteste: "Le mode “batterie faible” du dimanche"
 history:
   - years: "2026"
     role: "Jeu"

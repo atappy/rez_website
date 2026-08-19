@@ -2,6 +2,8 @@
 order: 1
 name: "Marion Cleusix"
 photo: "/assets/marion.jpg"
+adore: "Les fleurs"
+deteste: "Les fruits, pour lesquels tout le monde dit que c’est que de l’eau alors qu’il y a un goût genre pastèque et concombre"
 history:
   - years: "2023 – 2024"
     role: "Jeu"

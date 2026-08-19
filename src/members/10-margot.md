@@ -2,6 +2,8 @@
 order: 10
 name: "Margot Monnier"
 photo: "/assets/margot.jpg"
+adore: "Les treks en solo ou à plusieurs"
+deteste: "La dissonance cognitive de la droite"
 history:
   - years: "2026"
     role: "Jeu"

@@ -2,90 +2,91 @@
 import '../styles/global.css';
 import Navbar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
-import { getImage } from 'astro:assets';
-import { loadAssetImage } from '../utils/images';
-import { ClientRouter, fade } from 'astro:transitions';
+import {getImage} from 'astro:assets';
+import {loadAssetImage} from '../utils/images';
+import {ClientRouter, fade} from 'astro:transitions';
 
-const pageFade = fade({ duration: '0.4s' });
+const pageFade = fade({duration: '0.4s'});
 
 interface Props {
-  title: string;
-  backgroundImage?: string;
-  theme?: 'dark' | 'light';
-  wide?: boolean;
+    title?: string;
+    backgroundImage?: string;
+    theme?: 'dark' | 'light';
+    wide?: boolean;
 }
 
-const { title, backgroundImage, theme = 'dark', wide = false } = Astro.props;
+const {title, backgroundImage, theme = 'dark', wide = false} = Astro.props;
 
 let backgroundImageUrl: string | null = null;
 if (backgroundImage) {
-  const backgroundMeta = await loadAssetImage(backgroundImage);
-  backgroundImageUrl = backgroundMeta ? (await getImage({ src: backgroundMeta })).src : backgroundImage;
+    const backgroundMeta = await loadAssetImage(backgroundImage);
+    backgroundImageUrl = backgroundMeta ? (await getImage({src: backgroundMeta})).src : backgroundImage;
 }
 ---
 
 <!doctype html>
 <html lang="fr" class="h-full">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} — La Troupe du Rez</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
-  <ClientRouter />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{title} — La Troupe du Rez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@200;300;400;500&display=swap"
+          rel="stylesheet">
+    <ClientRouter/>
 </head>
-<body class={theme === 'light' ? 'page-body-light' : 'page-body'}>
+<body class={`${theme === 'light' ? 'page-body-light' : 'page-body'} flex flex-col min-h-screen`}>
 
-  {backgroundImageUrl && (
-    <div class="page-backdrop" transition:animate={pageFade}>
-      <img
-        src={backgroundImageUrl}
-        alt=""
-        aria-hidden="true"
-        class="page-backdrop-fill"
-        onload="this.classList.add('is-loaded')"
-      />
-      <img
-        src={backgroundImageUrl}
-        alt=""
-        class="page-backdrop-img"
-        onload="this.classList.add('is-loaded')"
-      />
-      <div class="page-backdrop-overlay"></div>
-    </div>
-  )}
+{backgroundImageUrl && (
+        <div class="page-backdrop" transition:animate={pageFade}>
+            <img
+                    src={backgroundImageUrl}
+                    alt=""
+                    aria-hidden="true"
+                    class="page-backdrop-fill"
+                    onload="this.classList.add('is-loaded')"
+            />
+            <img
+                    src={backgroundImageUrl}
+                    alt=""
+                    class="page-backdrop-img"
+                    onload="this.classList.add('is-loaded')"
+            />
+            <div class="page-backdrop-overlay"></div>
+        </div>
+)}
 
-  <Navbar theme={theme} />
+<Navbar theme={theme}/>
 
-  <main class={wide ? 'page-main-wide' : 'page-main'} transition:animate={pageFade}>
-    <slot />
-  </main>
+<main class={`${wide ? 'page-main-wide' : 'page-main'} flex-1`} transition:animate={pageFade}>
+    <slot/>
+</main>
 
-  <Footer theme={theme} />
+<Footer theme={theme}/>
 
-  <script>
+<script>
     function initScrollReveal() {
-      const items = document.querySelectorAll('.reveal-up:not(.is-visible)');
-      if (!items.length) return;
+        const items = document.querySelectorAll('.reveal-up:not(.is-visible)');
+        if (!items.length) return;
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
-      );
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {threshold: 0.15, rootMargin: '0px 0px -40px 0px'},
+        );
 
-      items.forEach((item) => observer.observe(item));
+        items.forEach((item) => observer.observe(item));
     }
 
     document.addEventListener('astro:page-load', initScrollReveal);
-  </script>
+</script>
 
 </body>
 </html>

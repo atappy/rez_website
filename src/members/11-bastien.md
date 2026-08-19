@@ -2,6 +2,8 @@
 order: 11
 name: "Bastien Mottier"
 photo: "/assets/bastien.jpg"
+adore: "Faire la sieste dans le train"
+deteste: "Les étiquettes de prix collées sur les livres"
 history:
   - years: "2026"
     role: "Stagiaire communication"

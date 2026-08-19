@@ -2,6 +2,8 @@
 order: 3
 name: "Mahault Disero"
 photo: "/assets/mahault.jpg"
+adore: "Les papillons"
+deteste: "Les chenilles"
 history:
   - years: "2026"
     role: "Jeu"

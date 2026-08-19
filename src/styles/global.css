@@ -312,15 +312,15 @@
 
     /* --- Contact Page --- */
     .contact-info {
-        @apply max-w-md mx-auto text-center space-y-3 text-neutral-700 font-light text-lg;
+        @apply max-w-md mx-auto text-center space-y-3 text-white text-neutral-400 font-normal text-lg;
     }
 
     .contact-org {
-        @apply text-xl font-serif text-neutral-900;
+        @apply text-xl font-serif font-medium;
     }
 
     .contact-email {
-        @apply inline-block underline hover:opacity-70 transition-opacity;
+        @apply inline-block underline transition-colors;
     }
 
     /* --- Site Footer --- */
@@ -394,5 +394,17 @@
 
     .site-footer-meta-link {
         @apply hover:opacity-70 transition-opacity;
+    }
+
+    .newsletter-form {
+      @apply flex items-center border-b border-neutral-700 focus-within:border-amber-500 transition-colors py-1;
+    }
+
+    .newsletter-input {
+      @apply w-full bg-transparent text-sm text-neutral-100 placeholder-neutral-500 focus:outline-none font-light;
+    }
+
+    .newsletter-btn {
+      @apply text-neutral-400 hover:text-amber-400 transition-colors p-1 shrink-0 cursor-pointer;
     }
 }

@@ -2,6 +2,8 @@
 order: 4
 name: "Jules Dussez"
 photo: "/assets/jules.jpg"
+adore: "Le moment où tu as conscience que tu vas t’endormir"
+deteste: "Devoir venir trois heures à l’avance à l’aéroport uniquement pour attendre"
 history:
   - years: "2023 – 2024"
     role: "Jeu"

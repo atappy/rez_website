@@ -1,0 +1,20 @@
+---
+interface Props {
+  summary: string;
+  title?: string;
+}
+
+const { summary, title } = Astro.props;
+---
+
+<section class="content-section space-y-3 my-4 py-2 reveal-up">
+  <h2 class="section-label">{title}</h2>
+
+  <div class="w-full">
+    <div class="prose prose-invert prose-xl md:prose-2xl max-w-none font-light leading-relaxed text-neutral-100">
+      <p class="text-xl md:text-xl font-light leading-relaxed text-neutral-100">
+        {summary}
+      </p>
+    </div>
+  </div>
+</section>

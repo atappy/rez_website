@@ -2,6 +2,8 @@
 order: 2
 name: "Simon Délétroz"
 photo: "/assets/simon.jpg"
+adore: "La vidéo"
+deteste: "Le boudin"
 history:
   - years: "2026"
     role: "Jeu et réalisation de vidéos"

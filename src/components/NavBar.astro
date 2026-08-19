@@ -1,84 +1,88 @@
 ---
-import { Image } from 'astro:assets';
-import logoImage from '../assets/logo-mark.png';
-import { navigation, isNavGroup } from '../data/navigation';
+import {Image} from 'astro:assets';
+import logoImage from '../assets/logo-test.png';
+import {navigation, isNavGroup} from '../data/navigation';
 
 interface Props {
-  theme?: 'dark' | 'light';
+    theme?: 'dark' | 'light';
 }
 
-const { theme = 'dark' } = Astro.props;
+const {theme = 'dark'} = Astro.props;
 ---
 <header class={`navbar navbar-${theme}`}>
-  <nav class="nav-container">
+    <nav class="nav-container">
 
-    <a href="/" class="brand">
-      <Image
-        src={logoImage}
-        alt="Logo La Troupe du Rez"
-        class="brand-img img-fade"
-        onload="this.classList.add('is-loaded')"
-      />
-    </a>
+        <a href="/" class="brand">
+            <Image
+                    src={logoImage}
+                    alt="Logo La Troupe du Rez"
+                    class="brand-img img-fade h-12 w-auto"
+                    onload="this.classList.add('is-loaded')"
+            />
+        </a>
 
-    <div class="desktop-menu">
-      {navigation.map((entry) =>
-        isNavGroup(entry) ? (
-          <div class="dropdown group">
-            <button class={`nav-link nav-link-${theme} dropdown-btn`}>
-              {entry.label}
-              <svg class="chevron" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-              </svg>
-            </button>
-            <div class={`dropdown-content dropdown-content-${theme}`}>
-              {entry.items.map((item) => (
-                <a href={item.href} class={`dropdown-item dropdown-item-${theme}`}>{item.label}</a>
-              ))}
-            </div>
-          </div>
-        ) : (
-          <a href={entry.href} class={`nav-link nav-link-${theme}`}>{entry.label}</a>
-        )
-      )}
-    </div>
-
-    <button id="menu-btn" class={`mobile-btn mobile-btn-${theme}`} aria-label="Menu" aria-expanded="false">
-      <svg class="icon" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-      </svg>
-    </button>
-  </nav>
-
-  <div id="mobile-menu" class={`mobile-menu mobile-menu-${theme} hidden`}>
-    {navigation.map((entry) =>
-      isNavGroup(entry) ? (
-        <div class="mobile-group">
-          <span class={`mobile-group-label mobile-group-label-${theme}`}>{entry.label}</span>
-          {entry.items.map((item) => (
-            <a href={item.href} class={`mobile-link mobile-link-${theme} mobile-link-nested`}>{item.label}</a>
-          ))}
+        <div class="desktop-menu">
+            {navigation.map((entry) =>
+                isNavGroup(entry) ? (
+                        <div class="dropdown group">
+                            <button class={`nav-link nav-link-${theme} dropdown-btn`}>
+                                {entry.label}
+                                <svg class="chevron" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class={`dropdown-content dropdown-content-${theme}`}>
+                                {entry.items.map((item) => (
+                                        <a href={item.href}
+                                           class={`dropdown-item dropdown-item-${theme}`}>{item.label}</a>
+                                ))}
+                            </div>
+                        </div>
+                ) : (
+                        <a href={entry.href} class={`nav-link nav-link-${theme}`}>{entry.label}</a>
+                )
+            )}
         </div>
-      ) : (
-        <a href={entry.href} class={`mobile-link mobile-link-${theme}`}>{entry.label}</a>
-      )
-    )}
-  </div>
+
+        <button id="menu-btn" class={`mobile-btn mobile-btn-${theme}`} aria-label="Menu" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class={`mobile-menu mobile-menu-${theme} hidden`}>
+        {navigation.map((entry) =>
+            isNavGroup(entry) ? (
+                    <div class="mobile-group">
+                        <span class={`mobile-group-label mobile-group-label-${theme}`}>{entry.label}</span>
+                        {entry.items.map((item) => (
+                                <a href={item.href}
+                                   class={`mobile-link mobile-link-${theme} mobile-link-nested`}>{item.label}</a>
+                        ))}
+                    </div>
+            ) : (
+                    <a href={entry.href} class={`mobile-link mobile-link-${theme}`}>{entry.label}</a>
+            )
+        )}
+    </div>
 </header>
 
 <script>
-  function setupMobileMenu() {
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('mobile-menu');
+    function setupMobileMenu() {
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
 
-    if (!btn || !menu) return;
+        if (!btn || !menu) return;
 
-    btn.addEventListener('click', () => {
-      const isHidden = menu.classList.toggle('hidden');
-      btn.setAttribute('aria-expanded', (!isHidden).toString());
-    });
-  }
+        btn.addEventListener('click', () => {
+            const isHidden = menu.classList.toggle('hidden');
+            btn.setAttribute('aria-expanded', (!isHidden).toString());
+        });
+    }
 
-  setupMobileMenu();
-  document.addEventListener('astro:page-load', setupMobileMenu);
+    setupMobileMenu();
+    document.addEventListener('astro:page-load', setupMobileMenu);
 </script>

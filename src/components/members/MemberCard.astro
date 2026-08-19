@@ -1,18 +1,27 @@
 ---
-import { Image } from 'astro:assets';
-import { loadAssetImage } from '../../utils/images';
+import {Image} from 'astro:assets';
+import {loadAssetImage} from '../../utils/images';
+import {Icon} from 'astro-icon/components';
 
 interface Props {
-  name: string;
-  photo?: string;
-  adore?: string;
-  deteste?: string;
-  history: { years: string; role: string; show: string; venue: string }[];
-  theme?: 'dark' | 'light';
-  index?: number;
+    name: string;
+    photo?: string;
+    adore?: string;
+    deteste?: string;
+    history: { years: string; role: string; show: string; venue: string }[];
+    theme?: 'dark' | 'light';
+    index?: number;
 }
 
-const { name, photo, adore, deteste, history, theme = 'light', index = 0 } = Astro.props;
+const {
+    name,
+    photo,
+    adore,
+    deteste,
+    history,
+    theme = 'light',
+    index = 0
+} = Astro.props;
 
 const photoMetadata = await loadAssetImage(photo);
 const photoFallbackUrl = photo && !photoMetadata ? photo : null;
@@ -22,44 +31,55 @@ const revealDelay = (index % 4) * 80;
 ---
 
 <article class={`member-card member-card-${suffix} reveal-up`} style={`transition-delay: ${revealDelay}ms`}>
-  <div class={`member-photo member-photo-${suffix}`}>
-    {photoMetadata ? (
-      <Image
-        src={photoMetadata}
-        alt={name}
-        class="w-full h-full object-cover img-fade"
-        onload="this.classList.add('is-loaded')"
-      />
-    ) : photoFallbackUrl ? (
-      <img
-        src={photoFallbackUrl}
-        alt={name}
-        class="w-full h-full object-cover img-fade"
-        onload="this.classList.add('is-loaded')"
-      />
-    ) : (
-      <span class={`text-4xl font-serif member-initial-${suffix}`}>{initial}</span>
-    )}
-  </div>
+    <div class={`member-photo member-photo-${suffix}`}>
+        {photoMetadata ? (
+                <Image
+                        src={photoMetadata}
+                        alt={name}
+                        class="w-full h-full object-cover img-fade"
+                        onload="this.classList.add('is-loaded')"
+                />
+        ) : photoFallbackUrl ? (
+                <img
+                        src={photoFallbackUrl}
+                        alt={name}
+                        class="w-full h-full object-cover img-fade"
+                        onload="this.classList.add('is-loaded')"
+                />
+        ) : (
+                <span class={`text-4xl font-serif member-initial-${suffix}`}>{initial}</span>
+        )}
+    </div>
 
-  <div class="member-details">
-    <h3 class={`text-lg font-serif member-name-${suffix}`}>{name}</h3>
+    <div class="member-details">
+        <h3 class={`text-lg font-serif member-name-${suffix}`}>{name}</h3>
 
-    {(adore || deteste) && (
-      <p class={`text-xs italic member-meta-${suffix}`}>
-        {adore && <>Adore : {adore}</>}
-        {adore && deteste && ' · '}
-        {deteste && <>Déteste : {deteste}</>}
-      </p>
-    )}
+        {(adore || deteste) && (
+                <div class={`my-3 space-y-2 text-xs member-meta-${suffix}`}>
+                    {adore && (
+                            <div class="flex items-start gap-2">
+                                <p class="leading-normal flex-1">
+                                    <strong class="font-medium opacity-80">Adore :</strong> {adore}
+                                </p>
+                            </div>
+                    )}
+                    {deteste && (
+                            <div class="flex items-start gap-2">
+                                <p class="leading-normal flex-1">
+                                    <strong class="font-medium opacity-80">Déteste :</strong> {deteste}
+                                </p>
+                            </div>
+                    )}
+                </div>
+        )}
 
-    <ul class="space-y-2">
-      {history.map((entry) => (
-        <li class={`text-xs font-light leading-snug member-history-${suffix}`}>
-          <span class={`member-history-year-${suffix}`}>{entry.years}</span> — {entry.role} dans{' '}
-          <span class={`font-normal member-history-show-${suffix}`}>{entry.show}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
+        <ul class="space-y-2 mt-3">
+            {history.map((entry) => (
+                    <li class={`text-xs font-light leading-snug member-history-${suffix}`}>
+                        <span class={`member-history-year-${suffix}`}>{entry.years}</span> — {entry.role} dans{' '}
+                        <span class={`font-normal member-history-show-${suffix}`}>{entry.show}</span>
+                    </li>
+            ))}
+        </ul>
+    </div>
 </article>

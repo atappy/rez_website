@@ -2,6 +2,8 @@
 order: 12
 name: "Antoine Tappy"
 photo: "/assets/fantoine.jpg"
+adore: "Les tests"
+deteste: "Les tests"
 history:
   - years: "2026"
     role: "Régie et jeu"

@@ -17,13 +17,13 @@ function parseMarkdownLinks(text: string) {
 <footer class="content-section text-center space-y-12">
   {annex && (
     <div class="space-y-2 reveal-up">
-      <span class="text-[10px] uppercase tracking-[0.3em] text-neutral-400 block font-medium">
+      <span class="text-[12px] uppercase tracking-[0.3em] text-neutral-400 block font-medium">
         Ressources
       </span>
       <div class="space-y-1 max-w-xl mx-auto">
         {annex.map((line) => (
           <p
-            class="text-xs font-light text-neutral-300 leading-relaxed"
+            class="text-s font-light text-neutral-200 leading-relaxed"
             set:html={parseMarkdownLinks(line)}
           />
         ))}
@@ -33,13 +33,13 @@ function parseMarkdownLinks(text: string) {
 
   {sponsoring && (
     <div class="space-y-4 pt-4 reveal-up">
-      <span class="text-[10px] uppercase tracking-[0.3em] text-neutral-400 block font-medium">
+      <span class="text-[12px] uppercase tracking-[0.3em] text-neutral-400 block font-medium">
         Soutiens & Partenaires
       </span>
       <div class="space-y-1 max-w-xl mx-auto">
         {sponsoring.map((sponsor) => (
           <p
-            class="text-xs font-light text-neutral-400 leading-relaxed"
+            class="text-s font-light text-neutral-200 leading-relaxed"
             set:html={parseMarkdownLinks(sponsor.name)}
           />
         ))}

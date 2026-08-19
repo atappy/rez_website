@@ -1,8 +1,9 @@
 ---
 // src/layouts/ProductionLayout.astro
-import type { CollectionEntry } from 'astro:content';
+import type {CollectionEntry} from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
+import Summary from '../components/production/Summary.astro';
 import Synopsis from '../components/production/Synopsis.astro';
 import Cast from '../components/production/Cast.astro';
 import DatesAndBooking from '../components/production/DatesAndBooking.astro';
@@ -10,28 +11,50 @@ import Quotes from '../components/production/Quotes.astro';
 import Credits from '../components/production/Credits.astro';
 
 interface Props {
-  frontmatter: CollectionEntry<'pieces'>['data'];
+    frontmatter: CollectionEntry<'pieces'>['data'];
 }
 
-const { frontmatter } = Astro.props;
+const {frontmatter} = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.title} backgroundImage={frontmatter.bgImage}>
-  <PageHeader title={frontmatter.title} />
+    {frontmatter.custom_font && (
+            <style is:inline set:html={`
+      @font-face {
+        font-family: custom-font;
+        src: url('${frontmatter.custom_font}') format('truetype');
+        font-display: swap;
+      }
+      .custom-font {
+            font-family: custom-font, sans-serif;
+          }
+    `}/>
+    )}
 
-  <Synopsis title={frontmatter.title} poster={frontmatter.poster}>
-    <slot />
-  </Synopsis>
+    <PageHeader title={frontmatter.title} title_logo={frontmatter.title_logo}/>
 
-  {frontmatter.generic && <Cast items={frontmatter.generic} />}
+    {frontmatter.summary &&
+            <div class="custom-font">
+                <Summary summary={frontmatter.summary}/>
+            </div>}
 
-  {(frontmatter.representations || frontmatter.reservation) && (
-    <DatesAndBooking representations={frontmatter.representations} reservation={frontmatter.reservation} />
-  )}
+    <div class="custom-font">
+        <Synopsis title={frontmatter.title} poster={frontmatter.poster}>
+            <slot/>
+        </Synopsis>
+    </div>
 
-  {frontmatter.quotes && <Quotes quotes={frontmatter.quotes} />}
+    {frontmatter.generic &&
+            <Cast items={frontmatter.generic}/>}
 
-  {(frontmatter.annex || frontmatter.sponsoring) && (
-    <Credits annex={frontmatter.annex} sponsoring={frontmatter.sponsoring} />
-  )}
+    {(frontmatter.representations || frontmatter.reservation) && (
+            <DatesAndBooking representations={frontmatter.representations} reservation={frontmatter.reservation}/>
+    )}
+
+    {frontmatter.quotes &&
+            <Quotes quotes={frontmatter.quotes}/>}
+
+    {(frontmatter.annex || frontmatter.sponsoring) && (
+            <Credits annex={frontmatter.annex} sponsoring={frontmatter.sponsoring}/>
+    )}
 </BaseLayout>
