@@ -5,8 +5,6 @@ import icon from 'astro-icon';
 
 import node from '@astrojs/node';
 
-import netlify from '@astrojs/netlify';
-
 export default defineConfig({
     vite: {
         plugins: [tailwindcss()]
@@ -17,5 +15,7 @@ export default defineConfig({
 
     output: 'static',
 
-    adapter: netlify(),
+    adapter: node({
+        mode: 'standalone',
+    }),
 });

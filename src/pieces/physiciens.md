@@ -24,8 +24,7 @@ representations:
     location: "Festival Fécule Lausanne - Suisse (1 représentation)"
 
 quotes:
-  - text: "Là, sur ta poitrine je cogne pour t'abîmer. Quand tu me devines j'essaye de résister"
-    author: "Anxiété, Pomme"
+  - text: "Les Hommes qui agissent de façon planifiée veulent atteindre un but précis. La pire des façons dont le hasard puisse les frapper, c'est en leur faisant atteindre l'exact opposé du but qu'ils poursuivaient"
 
 annex:
   - "Les Physiciens de Friedrich Dürrenmatt (traduction de Cécile Delettres) est publiée et représentée par [L'Arche éditeur & agence théâtrale](https://www.arche-editeur.com)"

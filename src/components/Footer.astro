@@ -68,6 +68,7 @@ const footerLinks = [
 
         <div class="site-footer-meta site-footer-meta-dark !mt-6 !pt-4 text-xs">
             <p>© {new Date().getFullYear()} La Troupe du Rez. Tous droits réservés.</p>
+            <p>Photos : Claude Dussez</p>
             <div class="site-footer-meta-links flex items-center gap-4">
                 <a href="/contact" class="site-footer-meta-link">Contact</a>
                 <a
@@ -107,7 +108,7 @@ const footerLinks = [
                 });
 
                 if (response.ok) {
-                    form.reset(); // Clears/wipes the email input field
+                    form.reset();
                     if (status) {
                         status.textContent = 'Inscription réussie !';
                         status.className = 'text-xs mt-1.5 text-emerald-400 block';
