@@ -21,10 +21,12 @@ export const POST: APIRoute = async ({request}) => {
             return new Response(JSON.stringify({message: 'Adresse email invalide'}), {status: 400});
         }
 
+        const smtpPort = Number(import.meta.env.SMTP_PORT) || 465;
+
         const transporter = nodemailer.createTransport({
             host: import.meta.env.SMTP_HOST,
-            port: Number(import.meta.env.SMTP_PORT) || 465,
-            secure: true,
+            port: smtpPort,
+            secure: smtpPort === 465, // 465 = implicit TLS, 587 = STARTTLS
             auth: {
                 user: import.meta.env.SMTP_USER,
                 pass: import.meta.env.SMTP_PASS,
