@@ -3,9 +3,10 @@ route: "/productions/dissection"
 title: "Dissection d'une chute de neige"
 bgImage: "/assets/dissection-background.jpg"
 poster: "/assets/dissection.jpg"
-summary: "Pour ce troisième projet, la Troupe du Rez souhaitait proposer un texte plus onirique et transporter le public entre
-réalité et illusion. Le texte de Sara Stridsberg, inspiré de l'histoire de Christine de Suède (1626-1689) a résonné en
-nous de par les thématiques qui y sont abordées."
+summary: "Pour ce troisième projet, La Troupe du Rez souhaitait proposer un texte plus onirique et transporter le public entre réalité et illusion. Le texte de Sara Stridsberg, inspiré de l'histoire de Christine de Suède (1626-1689) a résonné en nous de par les thématiques actuelles qui y sont abordées."
+summary_2: "Cette pièce est empreinte de féminisme, de questions sur le genre, sur la transidentité et plus largement sur la place
+de chacunex dans ce monde. Ce projet est une co-production avec la Belle Usine à Fully. Nous avons eu la chance d'être
+en résidence deux semaines au mois de juillet 2023 pour créer ce spectacle directement dans les lieux."
 generic:
   - role: "Jeu"
     name: "Marion Cleusix, Simon Délétroz, Mahault Disero, Jules Dussez, Romane Dussez, Hadrien Halter, Robin Loretan, Antoine Moix, Bastien Mottier"
@@ -36,9 +37,6 @@ sponsoring:
   - name: "En coproduction avec La Belle Usine et avec le soutien de la Commission des Jeunes - Valais"
 ---
 
-Ce projet est une co-production avec la Belle Usine à Fully. Nous avons eu la chance d'être en résidence deux semaines
-au mois de juillet 2023 pour créer ce spectacle directement dans les lieux.
-
 A la mort de son père, la Fille Roi a six ans et accède au trône dans un royaume violent et froid. Arrachée trop vite à
 l'enfance et à son insouciance, elle se pose une multitude de questions sur sa place dans ce monde.
 
@@ -48,6 +46,3 @@ inconstant: imprévisible mais réfléchie, aussi indépendante que fragile.
 
 Dissection d'une chute de neige, une fiction proche du rêve qui vous emmène dans le château étrange et vide d'une
 contrée lointaine.
-
-Cette pièce est empreinte de féminisme, de questions sur le genre, sur la transidentité et plus largement sur la place
-de chacunex dans ce monde.

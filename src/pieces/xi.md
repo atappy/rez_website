@@ -4,6 +4,7 @@ title: "XI"
 title_logo: "../assets/title-xi.svg"
 bgImage: "/assets/xi-background.jpg"
 poster: "/assets/xi.jpg"
+summary: "Inspiré·e·s de divers romans à problèmes tels que ceux d’Agatha Christie, ou d’oeuvres audiovisuelles comme Le Jeu de la Dame de Walter Tevis, ou encore Les Noces Funèbres de Tim Burton, et grâce au travail d’écriture, de mise en scène et de jeu, nous avons créé une histoire qui nous plait et nous touche : « XI »."
 generic:
   - role: "Jeu"
     name: "Marion Cleusix, Simon Délétroz, Mahault Disero, Jules Dussez, Romane Dussez, Hadrien Halter, Robin Loretan, Lena Loye, Antoine Moix, Margot Monnier, Bastien Mottier"
@@ -39,10 +40,6 @@ annex:
 sponsoring:
   - name: "Avec le soutien de la Commission des Jeunes - Valais et d'Helvetia Patria Jeunesse"
 ---
-
-Inspiré·e·s de divers romans à problèmes tels que ceux d'Agatha Christie, ou d'oeuvres audiovisuelles comme Le Jeu de la
-Dame de Walter Tevis, ou encore Les Noces Funèbres de Tim Burton, et grâce au travail d'écriture, de mise en scène et de
-jeu, nous avons créé une histoire qui nous plait et nous touche : « XI ».
 
 Face à vous onze fantômes, morts assassinés. Ils demandent votre aide pour trouver une explication et la paix. Guidés
 par Iris, la narratrice, ils revivront pour vous ces évènements tragiques, de leur rencontre à leurs derniers instants.

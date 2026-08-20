@@ -11,6 +11,7 @@ const pieces = defineCollection({
         bgImage: z.string().optional(),
         poster: z.string().optional(),
         summary: z.string().optional(),
+        summary_2: z.string().optional(),
         custom_font: z.string().optional(),
         generic: z
             .array(

@@ -44,12 +44,17 @@ const {frontmatter} = Astro.props;
         </Synopsis>
     </div>
 
-    {frontmatter.generic &&
-            <Cast items={frontmatter.generic}/>}
+    {frontmatter.summary_2 &&
+            <div class="custom-font">
+                <Summary summary={frontmatter.summary_2}/>
+            </div>}
 
     {(frontmatter.representations || frontmatter.reservation) && (
             <DatesAndBooking representations={frontmatter.representations} reservation={frontmatter.reservation}/>
     )}
+
+    {frontmatter.generic &&
+            <Cast items={frontmatter.generic}/>}
 
     {frontmatter.quotes &&
             <Quotes quotes={frontmatter.quotes}/>}

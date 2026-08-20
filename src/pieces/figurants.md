@@ -4,8 +4,7 @@ title: "Les Figurants"
 title_logo: "../assets/title-figurants.png"
 bgImage: "/assets/figurants-background.jpg"
 poster: "/assets/figurants.png"
-summary: "La Troupe du Rez revient avec un nouveau projet. Elle présentera Les Figurants les 17-18 et 24-25 octobre 2026 à la Black Box, Pôle Musique à Sion."
-custom_font: "/fonts/figurants.TTF"
+summary: "La Troupe du Rez revient avec un nouveau projet. Elle présentera *Les Figurants* les 17-18 et 24-25 octobre 2026 à la Black Box, Pôle Musique à Sion."
 
 generic:
   - role: "Jeu"
